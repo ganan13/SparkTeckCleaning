@@ -57,48 +57,36 @@ function doGet(e) {
 
 const cleaningServiceType = [
     {
-        name: "Service type A",
+        name: "Interior Builders Cleaning",
         value: 1
     },
     {
-        name: "Service type B",
+        name: "Exterior Builders Cleaning",
         value: 2
     },
     {
-        name: "Service type c",
+        name: "Builders Windows Cleaning",
         value: 3
     },
     {
-        name: "Service type D",
+        name: "Total Builders Cleaning Solution",
         value: 4
-    },
-    {
-        name: "Service type E",
-        value: 5
-    },
+    },    
 ]
 
 const useOfService = [
     {
-        name: "Use type A",
+        name: "Commercial Purpose",
         value: 1
     },
     {
-        name: "Use type B",
+        name: "Residential Cleaning",
         value: 2
     },
     {
-        name: "Use type c",
+        name: "Industrial Cleaning",
         value: 3
-    },
-    {
-        name: "Use type D",
-        value: 4
-    },
-    {
-        name: "Use type E",
-        value: 5
-    },
+    },    
 ]
 
 
