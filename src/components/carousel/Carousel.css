@@ -1,0 +1,14 @@
+.carousel-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;         /* Stretches image to fill */
+    object-position: center;   /* Default focus for desktop */
+  }
+  
+  /* Mobile view: focus top part */
+  @media (max-width: 768px) {
+    .carousel-img {
+      object-position: top;    /* Show top portion */
+    }
+  }
+  

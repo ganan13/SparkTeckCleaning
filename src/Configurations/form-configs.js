@@ -68,5 +68,5 @@ export const purposeOfInquiry = [
 ]
 
 export const scriptConfig = {
-    deploymentId: 'AKfycbw2b-T-5MvbB1t4MjtAQ1sM6pXC-217tU_qC9sPyy7c3va3-Hf9zGwla6QLA2z8Ptnw'
+    deploymentId: 'AKfycbxzk8pjRfXskml9FfQQvXcdFJSbW_4bbzKXZhzkPZv2e0ydEksi9JRCFNV1Hl7OGBIG'
 }

@@ -37,3 +37,9 @@ input[type=number] {
     font-size: small;
     font-style: italic;
 }
+
+.navBarEnclosure{
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+}

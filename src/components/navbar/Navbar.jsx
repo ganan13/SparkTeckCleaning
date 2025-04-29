@@ -4,7 +4,7 @@ import './Navbar.css'
 function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) {
   return (
     <>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: '#e3f2fd'}} data-bs-theme="light">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: '#e3f2fd00', padding: '30px'}} data-bs-theme="light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     <div><img src={logoPath} alt="Logo" width="40" className="d-inline-block align-text-top"/></div>
@@ -20,7 +20,7 @@ function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) 
                     <div className="navbar-nav text-center navBarBold">
                         {
                             subLinks.map( link => 
-                                <div className='navLink'>
+                                <div className='navLink' >
                                     <a className="nav-link" href={link.to}>{link.title}</a>
                                 </div>
                             )

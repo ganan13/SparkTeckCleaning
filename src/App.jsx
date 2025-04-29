@@ -5,6 +5,7 @@ import QuoteForm from './components/forms/Quote-form'
 import { imagePaths, titleConfigs } from './Configurations/common-configs'
 import ResNavbar from './components/navbar/ResNavbar'
 import * as Popper from "@popperjs/core"
+import Carousel from './components/carousel/Carousel'
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <>
     <div>
       {/* <ResNavbar title={titleConfigs.navbarTitle} subTitle={titleConfigs.subTitle} logoPath={imagePaths.navbarLogo}/> */}
-      <Navbar 
+      <div className='navBarEnclosure'>
+        <Navbar 
         title={titleConfigs.navbarTitle} 
         subTitle={titleConfigs.subTitle} 
         logoPath={imagePaths.navbarLogo} 
@@ -31,6 +33,9 @@ function App() {
           },
         ]}
       />
+      </div>
+      
+      <Carousel/>
       <QuoteForm/>
     </div>
       
