@@ -1,10 +1,13 @@
 import React from 'react'
+import gsap from 'gsap';
 import './Navbar.css'
 
 function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) {
+    
   return (
+    
     <>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: '#e3f2fd00', padding: '30px'}} data-bs-theme="light">
+        <nav className="navbar navbar-expand-lg" data-bs-theme="light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     <div><img src={logoPath} alt="Logo" width="40" className="d-inline-block align-text-top"/></div>

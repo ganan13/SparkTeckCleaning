@@ -6,9 +6,18 @@ import { imagePaths, titleConfigs } from './Configurations/common-configs'
 import ResNavbar from './components/navbar/ResNavbar'
 import * as Popper from "@popperjs/core"
 import Carousel from './components/carousel/Carousel'
+import gsap from 'gsap'
+import {useGSAP} from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-
+  useGSAP(() => {
+    gsap.to(".navbar",{
+        backgroundColor: '#00000000'
+        
+    })
+})
   return (
     <>
     <div>
