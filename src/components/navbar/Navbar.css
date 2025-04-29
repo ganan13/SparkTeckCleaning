@@ -37,3 +37,12 @@
     letter-spacing: 3px;
     top: -8px;
 }
+
+.navBarSubLinkContainer{
+    justify-content: right;
+    font-weight: 600;
+    .navLink{
+
+    }
+}
+

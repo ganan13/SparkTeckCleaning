@@ -6,6 +6,6 @@ export const titleConfigs = {
 } 
 
 export const imagePaths = {
-    navbarLogo: 'logoF.jpg',
+    navbarLogo: 'logoF.png',
     logoMode: 'title' // title , image
 }
