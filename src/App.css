@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Sensation";
+    src: local("Sensation"),
+     url("./fonts/Sansation/Sansation-Bold.ttf") format("truetype");
+    font-weight: bold;
+   }
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"),
+     url("./fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: bold;
+   }
+   
+.mainForm{
+    margin: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.error{
+    color: red;
+    font-size: small;
+    font-style: italic;
+}

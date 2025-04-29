@@ -1,0 +1,39 @@
+.navbarMaster{
+    height: 60px;
+    width: 100vw;
+    background-color: #6f6f6f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleContainer{
+    font-family: "Sensation";
+    font-size: large;
+}
+
+.navbar .navbar-brand{
+    display: flex;
+}
+
+.navTitleGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.navTitle{
+    color: #013F69;
+    font-family: "Poppins";
+    font-size: 20px;
+}
+
+.navSubTitle{
+    color: #46973D;
+    font-family: "Poppins";
+    font-size: 11px;
+    position: relative;
+    letter-spacing: 3px;
+    top: -8px;
+}
