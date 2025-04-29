@@ -56,5 +56,5 @@ export const useOfService = [
 // ]
 
 export const scriptConfig = {
-    deploymentId: 'AKfycbxzk8pjRfXskml9FfQQvXcdFJSbW_4bbzKXZhzkPZv2e0ydEksi9JRCFNV1Hl7OGBIG'
+    deploymentId: 'AKfycbxCEHVqMqtjZBHwz4RjvqbK0VpNCHLGDjFlRcTMlDNWbijf2U-vDYJXoYN6KhTBNu0h'
 }

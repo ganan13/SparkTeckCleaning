@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { cleaningServiceType, purposeOfInquiry, scriptConfig, useOfService } from '../../Configurations/form-configs';
+import { cleaningServiceType, scriptConfig, useOfService } from '../../Configurations/form-configs';
 import { useForm } from 'react-hook-form';
 import { titleConfigs } from '../../Configurations/common-configs';
 
@@ -35,19 +35,19 @@ function QuoteForm() {
             <h2 className="text-center mb-4">{titleConfigs.formTitle}</h2>
             <form className="row g-3 mx-auto" style={{ maxWidth: '1200px' }} onSubmit={handleSubmit(submitForm)}>
                 
-                <div className="col-md-6 form-floating">
+                <div className="col-md-12 form-floating">
                     <input 
                         type="text"
                         className={`form-control ${errors.fname ? 'is-invalid' : ''}`} 
                         id="firstName" 
                         placeholder="First Name"
-                        {...register("fname", { required: "First name is required" })}
+                        {...register("name", { required: "First name is required" })}
                     />
-                    <label htmlFor="firstName">First Name *</label>
+                    <label htmlFor="firstName">Name *</label>
                     {errors.fname && <div className="invalid-feedback">{errors.fname.message}</div>}
                 </div>
 
-                <div className="col-md-6 form-floating">
+                {/* <div className="col-md-6 form-floating">
                     <input 
                         type="text"
                         className={`form-control ${errors.lname ? 'is-invalid' : ''}`} 
@@ -57,7 +57,7 @@ function QuoteForm() {
                     />
                     <label htmlFor="lastName">Last Name *</label>
                     {errors.lname && <div className="invalid-feedback">{errors.lname.message}</div>}
-                </div>
+                </div> */}
 
                 <div className="col-md-6 form-floating">
                     <input 
@@ -95,7 +95,7 @@ function QuoteForm() {
                     {errors.phone && <div className="invalid-feedback">{errors.phone.message}</div>}
                 </div>
 
-                <div className="col-md-4 form-floating">
+                <div className="col-md-6 form-floating">
                     <select 
                         className={`form-select ${errors.serviceType ? 'is-invalid' : ''}`}
                         id="service"
@@ -111,7 +111,7 @@ function QuoteForm() {
                     {errors.serviceType && <div className="invalid-feedback">{errors.serviceType.message}</div>}
                 </div>
 
-                <div className="col-md-4 form-floating">
+                <div className="col-md-6 form-floating">
                     <select 
                         className={`form-select ${errors.useService ? 'is-invalid' : ''}`}
                         id="useService"
@@ -127,7 +127,7 @@ function QuoteForm() {
                     {errors.useService && <div className="invalid-feedback">{errors.useService.message}</div>}
                 </div>
 
-                <div className="col-md-4 form-floating">
+                {/* <div className="col-md-4 form-floating">
                     <select 
                         className={`form-select ${errors.purpose ? 'is-invalid' : ''}`}
                         id="inquiry"
@@ -141,7 +141,7 @@ function QuoteForm() {
                     </select>
                     <label htmlFor="inquiry">Purpose of the Inquiry *</label>
                     {errors.purpose && <div className="invalid-feedback">{errors.purpose.message}</div>}
-                </div>
+                </div> */}
 
                 <div className="col-12 form-floating">
                     <input 
@@ -154,7 +154,7 @@ function QuoteForm() {
                     <label htmlFor="siteLocation">Site Location</label>
                 </div>
 
-                <div className="col-12">
+                {/* <div className="col-12">
                     <label htmlFor="photoUpload" className="form-label">Upload Photo</label>
                     <div className="input-group mb-3">
                         <input 
@@ -166,28 +166,50 @@ function QuoteForm() {
                         />
                     </div>
                     <div className="form-text">Max image size is 25MB</div>
+                </div> */}
+
+                <div className="col-md-6 form-floating">
+                    <input 
+                        type="text"
+                        className="form-control" 
+                        id="city"
+                        placeholder="city"
+                        {...register("city")}
+                    />
+                    <label htmlFor="promoCode">City/Town</label>
                 </div>
 
                 <div className="col-md-6 form-floating">
                     <input 
                         type="text"
                         className="form-control" 
-                        id="promoCode"
-                        placeholder="Promo Code"
-                        {...register("promoCode")}
+                        id="state"
+                        placeholder="State"
+                        {...register("state")}
                     />
-                    <label htmlFor="promoCode">Promo Code</label>
+                    <label htmlFor="membershipNumber">State/Region</label>
                 </div>
 
                 <div className="col-md-6 form-floating">
                     <input 
                         type="text"
                         className="form-control" 
-                        id="membershipNumber"
-                        placeholder="Membership Number"
-                        {...register("membershipNumber")}
+                        id="zip"
+                        placeholder="Zip"
+                        {...register("zip")}
                     />
-                    <label htmlFor="membershipNumber">Membership Number</label>
+                    <label htmlFor="promoCode">ZIP/Postal Code</label>
+                </div>
+
+                <div className="col-md-6 form-floating">
+                    <input 
+                        type="text"
+                        className="form-control" 
+                        id="schedule"
+                        placeholder="Schedule"
+                        {...register("schedule")}
+                    />
+                    <label htmlFor="membershipNumber">Schedule</label>
                 </div>
 
                 <div className="col-12 form-floating">
