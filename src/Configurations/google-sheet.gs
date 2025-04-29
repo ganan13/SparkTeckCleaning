@@ -15,16 +15,16 @@ function doPost(e) {
     
     sheet.appendRow([
       new Date(),
-      data.fname || '',
-      data.lname || '',
+      data.name || '',
       data.email || '',
       data.phone || '',
+      data.address || '',
+      data.city || '',
+      data.state || '',
+      data.zip || '',
+      data.schedule || '',
       cleaningServiceType.filter(i => i.value == data.serviceType)[0]?.name || '',
       useOfService.filter(i => i.value == data.useService)[0]?.name || '',
-      purposeOfInquiry.filter(i => i.value == data.purpose)[0]?.name || '',
-      data.siteLocation || '',
-      data.promoCode || '',
-      data.membershipNumber || '',
       data.message || ''
     ]);
     
@@ -101,26 +101,5 @@ const useOfService = [
     },
 ]
 
-const purposeOfInquiry = [
-    {
-        name: "Inquiry type A",
-        value: 1
-    },
-    {
-        name: "Inquiry type B",
-        value: 2
-    },
-    {
-        name: "Inquiry type c",
-        value: 3
-    },
-    {
-        name: "Inquiry type D",
-        value: 4
-    },
-    {
-        name: "Inquiry type E",
-        value: 5
-    },
-]
+
 
