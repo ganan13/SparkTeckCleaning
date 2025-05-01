@@ -5,7 +5,6 @@ import img2 from '../../assets/carouselImage/image2.png';
 import img3 from '../../assets/carouselImage/image3.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { RingLoader } from 'react-spinners';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +60,7 @@ function Carousel({isLoading, setIsLoading}) {
                 onLoad={() => handleImgLoad(idx)}
               />
               <div
-                className="carousel-caption animate__animated animate__fadeInUp"
+                className="carousel-caption"
                 ref={(el) => (captionRefs.current[idx] = el)}
               >
                 <h2>{slide.title}</h2>
