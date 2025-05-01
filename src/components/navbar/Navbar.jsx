@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import './Navbar.css'
 import QuotePopup from '../forms/Quote-form';
 
-function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) {
+function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = [], setPopup}) {
     
   return (
     
@@ -31,6 +31,24 @@ function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) 
                                 </div>
                             )
                         } 
+                        <button 
+                            onClick={() => setPopup(true)}
+                            className="book-now-btn"
+                            style={{
+                                backgroundColor: '#46973D',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '50px',
+                                padding: '12px 24px',
+                                fontSize: '16px',
+                                fontWeight: '600',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 12px rgba(70, 151, 61, 0.3)',
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            Book Now
+                        </button>
                     </div>
                 </div>
             </div>

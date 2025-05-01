@@ -6,8 +6,8 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import './Quote-form.css'
 
-function QuotePopup() {
-    const [isOpen, setIsOpen] = useState(false);
+function QuotePopup({isOpen = false, setIsOpen}) {
+    // const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const popupRef = useRef(null);

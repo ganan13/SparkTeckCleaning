@@ -17,6 +17,7 @@ function App() {
   const navRef = useRef(null)
   const servicesRef = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [popupOpen, setPopupOpen] = useState(false)
 
   useGSAP(() => {
     ScrollTrigger.create({
@@ -26,7 +27,7 @@ function App() {
       scrub: true,
       onUpdate: (self) => {
         const opacity = self.progress.toFixed(2)
-        const padding = 30 - (25 * self.progress)
+        const padding = 40 - (25 * self.progress)
         const color = `rgb(${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)})`
 
         gsap.set(navRef.current, {
@@ -79,6 +80,7 @@ function App() {
             title={titleConfigs.navbarTitle} 
             subTitle={titleConfigs.subTitle} 
             logoPath={imagePaths.navbarLogo}
+            setPopup={setPopupOpen}
             subLinks={[
               {
                 to: "#",
@@ -101,7 +103,7 @@ function App() {
         <div ref={servicesRef} id="services">
           <Services />
         </div>
-        <QuotePopup/>
+        <QuotePopup isOpen={popupOpen} setIsOpen={setPopupOpen}/>
       </div>
     </>
   )
