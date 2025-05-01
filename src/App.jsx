@@ -10,6 +10,8 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/all'
 import { RingLoader } from 'react-spinners'
 import QuotePopup from './components/forms/Quote-form'
+import Footer from './components/footer/footer'
+import WhyChooseUs from './components/whyUs/WhyChooseUs'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -96,15 +98,22 @@ function App() {
               },
             ]}
           />
-        </div>
-        <div className='carouselContainer'>
-          <Carousel isLoading={isLoading} setIsLoading={setIsLoading}/>
-        </div>
-        <div ref={servicesRef} id="services">
-          <Services />
-        </div>
-        <QuotePopup isOpen={popupOpen} setIsOpen={setPopupOpen}/>
       </div>
+      <div className='carouselContainer'>
+        <Carousel isLoading={isLoading} setIsLoading={setIsLoading}/>
+      </div>
+      <div ref={servicesRef} id="services">
+        <Services />
+      </div>
+      <QuotePopup isOpen={popupOpen} setIsOpen={setPopupOpen}/>
+      </div>
+      <div id="whyUs">
+        <WhyChooseUs/>
+      </div>
+      <div id="contact">
+        <Footer setPopup={setPopupOpen}/>
+      </div>
+      
     </>
   )
 }

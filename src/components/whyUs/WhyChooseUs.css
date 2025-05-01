@@ -1,0 +1,110 @@
+.why-choose-us {
+    background-color: #f9f9f9;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .why-choose-us-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #013F69;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+  }
+  
+  .why-choose-us-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #46973D;
+  }
+  
+  .why-choose-us-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #46973D;
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .feature-item {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #46973D, #013F69);
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-icon {
+    color: #46973D;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-item h3 {
+    color: #013F69;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .feature-item p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .why-choose-us {
+      padding: 3rem 1rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .why-choose-us-title {
+      font-size: 2rem;
+    }
+    
+    .why-choose-us-subtitle {
+      font-size: 1rem;
+    }
+    
+    .feature-item {
+      padding: 1.5rem;
+    }
+  }

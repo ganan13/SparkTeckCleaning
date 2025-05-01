@@ -48,3 +48,8 @@ input[type=number] {
     color: white;
   }
 }
+
+#whyUs {
+  position: relative;
+  z-index: 1;
+}
