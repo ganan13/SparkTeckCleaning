@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
 import QuoteForm from './components/forms/Quote-form'
@@ -12,21 +12,32 @@ import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [navProps, setNavProps] = useState(0)
+  const navRef = useRef(null)
   useGSAP(() => {
-    gsap.to(".navbar",{
-        backgroundColor: '#00000000'
-        
-    })
-})
+    const trigger = ScrollTrigger.create({
+      trigger: '.carouselContainer',
+      start: 'bottom 100%',
+      end: 'bottom 50%',
+      scrub: true,
+      onUpdate: (self) => {
+        setNavProps(self.progress)
+      },
+    });
+  
+    return () => {
+      trigger.kill();
+    };
+  })
   return (
     <>
     <div>
-      {/* <ResNavbar title={titleConfigs.navbarTitle} subTitle={titleConfigs.subTitle} logoPath={imagePaths.navbarLogo}/> */}
-      <div className='navBarEnclosure'>
+      <div className='navBarEnclosure' ref={navRef}>
         <Navbar 
         title={titleConfigs.navbarTitle} 
         subTitle={titleConfigs.subTitle} 
-        logoPath={imagePaths.navbarLogo} 
+        logoPath={imagePaths.navbarLogo}
+        navProps={navProps} 
         subLinks={[
           {
             to: "#",
@@ -43,8 +54,9 @@ function App() {
         ]}
       />
       </div>
-      
-      <Carousel/>
+      <div className='carouselContainer'>
+        <Carousel/>
+      </div>
       <QuoteForm/>
     </div>
       
