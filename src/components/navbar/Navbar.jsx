@@ -24,8 +24,8 @@ function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) 
                 <div className="collapse navbar-collapse navBarSubLinkContainer" id="navbarNavAltMarkup">
                     <div className="navbar-nav text-center navBarBold">
                         {
-                            subLinks.map( link => 
-                                <div className='navLink' >
+                            subLinks.map( (link, key) => 
+                                <div key={key} className='navLink' >
                                     <a className="nav-link" href={link.to}>{link.title}</a>
                                 </div>
                             )

@@ -7,10 +7,12 @@ import Carousel from './components/carousel/Carousel'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all';
+import { RingLoader } from 'react-spinners'
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const navRef = useRef(null)
+  const [isLoading, setIsLoading] = useState(true);
   useGSAP(() => {
     ScrollTrigger.create({
       trigger: '.carouselContainer',
@@ -34,8 +36,23 @@ function App() {
       },
     });
   })
+
   return (
     <>
+    {isLoading && <div className="carousel-loader" style={{
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+        position:'fixed',
+        width:'100vw',
+        top: 0,
+        left: 0,
+        zIndex: 100
+      }}>
+        <RingLoader size={60} color="#46973D" />
+      </div>}
     <div>
       <div className='navBarEnclosure' ref={navRef}>
         <Navbar 
@@ -59,7 +76,7 @@ function App() {
       />
       </div>
       <div className='carouselContainer'>
-        <Carousel/>
+        <Carousel isLoading={isLoading} setIsLoading={setIsLoading}/>
       </div>
       <QuoteForm/>
     </div>

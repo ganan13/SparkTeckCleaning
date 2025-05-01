@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Carousel.css';
 import img1 from '../../assets/carouselImage/image1.png';
 import img2 from '../../assets/carouselImage/image2.png';
 import img3 from '../../assets/carouselImage/image3.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { RingLoader } from 'react-spinners';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const slides = [
@@ -25,41 +27,66 @@ const slides = [
   }
 ];
 
-
-function Carousel() {
+function Carousel({isLoading, setIsLoading}) {
+  const totalImages = slides.length;
   const captionRefs = useRef([]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const carousel = document.querySelector('#carouselExampleFade');
-      const nextButton = carousel?.querySelector('.carousel-control-next');
-      nextButton?.click();
-    }, 6000);
+  const handleImgLoad = (id) => {
+    setIsLoading(!(totalImages == (id+1)))
+  }
 
-    return () => clearInterval(interval);
-  }, []);
+  useEffect(() => {
+    if (!isLoading) {
+      const interval = setInterval(() => {
+        const carousel = document.querySelector('#carouselExampleFade');
+        const nextButton = carousel?.querySelector('.carousel-control-next');
+        nextButton?.click();
+      }, 6000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isLoading]);
 
   return (
-    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{ minHeight: '100vh', position: 'relative' }}>
       <div className="carousel-inner">
         {slides.map((slide, idx) => (
           <div className={`carousel-item ${idx === 0 ? 'active' : ''}`} key={idx}>
-          <div className="carousel-content-wrapper">
-            <img src={slide.image} className="carousel-img" alt={`slide ${idx + 1}`} />
-            <div className="carousel-caption animate__animated animate__fadeInUp" ref={(el) => (captionRefs.current[idx] = el)}>
-              <h2>{slide.title}</h2>
-              <p dangerouslySetInnerHTML={{ __html: slide.description }}></p>
+            <div className="carousel-content-wrapper">
+              <img
+                src={slide.image}
+                className="carousel-img"
+                alt={`slide ${idx + 1}`}
+                loading="eager"
+                onLoad={() => handleImgLoad(idx)}
+              />
+              <div
+                className="carousel-caption animate__animated animate__fadeInUp"
+                ref={(el) => (captionRefs.current[idx] = el)}
+              >
+                <h2>{slide.title}</h2>
+                <p dangerouslySetInnerHTML={{ __html: slide.description }}></p>
+              </div>
             </div>
           </div>
-        </div>
         ))}
       </div>
 
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <button
+        className="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide="prev"
+      >
         <span className="carousel-control-prev-icon" aria-hidden="true" />
         <span className="visually-hidden">Previous</span>
       </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <button
+        className="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleFade"
+        data-bs-slide="next"
+      >
         <span className="carousel-control-next-icon" aria-hidden="true" />
         <span className="visually-hidden">Next</span>
       </button>
