@@ -3,8 +3,6 @@ import './App.css'
 import Navbar from './components/navbar/Navbar'
 import QuoteForm from './components/forms/Quote-form'
 import { imagePaths, titleConfigs } from './Configurations/common-configs'
-import ResNavbar from './components/navbar/ResNavbar'
-import * as Popper from "@popperjs/core"
 import Carousel from './components/carousel/Carousel'
 import gsap from 'gsap'
 import {useGSAP} from '@gsap/react';
@@ -12,22 +10,29 @@ import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [navProps, setNavProps] = useState(0)
   const navRef = useRef(null)
   useGSAP(() => {
-    const trigger = ScrollTrigger.create({
+    ScrollTrigger.create({
       trigger: '.carouselContainer',
       start: 'bottom 100%',
       end: 'bottom 50%',
       scrub: true,
       onUpdate: (self) => {
-        setNavProps(self.progress)
+        const opacity = self.progress.toFixed(2);
+        const padding = 30 - (25 * self.progress);
+        const color = `rgb(${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)})`;
+
+        gsap.set(navRef.current, {
+          backgroundColor: `rgba(255,255,255,${opacity})`,
+          padding: padding
+        });
+
+        gsap.set(navRef.current.querySelectorAll('.nav-link:not(:hover)'), {
+          color: color
+        });
+
       },
     });
-  
-    return () => {
-      trigger.kill();
-    };
   })
   return (
     <>
@@ -37,7 +42,6 @@ function App() {
         title={titleConfigs.navbarTitle} 
         subTitle={titleConfigs.subTitle} 
         logoPath={imagePaths.navbarLogo}
-        navProps={navProps} 
         subLinks={[
           {
             to: "#",

@@ -2,12 +2,12 @@ import React from 'react'
 import gsap from 'gsap';
 import './Navbar.css'
 
-function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = [], navProps = 0 }) {
+function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) {
     
   return (
     
     <>
-        <nav className={`navbar navbar-expand-lg`} data-bs-theme="light" style={{ padding: (1-navProps)*30, background: `rgba(255, 255, 255, ${navProps})`}}>
+        <nav className={`navbar navbar-expand-lg`} data-bs-theme="light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     <div><img src={logoPath} alt="Logo" width="40" className="d-inline-block align-text-top"/></div>
