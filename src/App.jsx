@@ -2,17 +2,21 @@ import { useRef, useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
 import QuoteForm from './components/forms/Quote-form'
+import Services from './components/services/Services'
 import { imagePaths, titleConfigs } from './Configurations/common-configs'
 import Carousel from './components/carousel/Carousel'
 import gsap from 'gsap'
-import {useGSAP} from '@gsap/react';
-import { ScrollTrigger } from 'gsap/all';
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/all'
 import { RingLoader } from 'react-spinners'
-gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   const navRef = useRef(null)
-  const [isLoading, setIsLoading] = useState(true);
+  const servicesRef = useRef(null)
+  const [isLoading, setIsLoading] = useState(true)
+
   useGSAP(() => {
     ScrollTrigger.create({
       trigger: '.carouselContainer',
@@ -20,67 +24,84 @@ function App() {
       end: 'bottom 50%',
       scrub: true,
       onUpdate: (self) => {
-        const opacity = self.progress.toFixed(2);
-        const padding = 30 - (25 * self.progress);
-        const color = `rgb(${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)})`;
+        const opacity = self.progress.toFixed(2)
+        const padding = 30 - (25 * self.progress)
+        const color = `rgb(${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)}, ${Math.floor(255 - 255 * self.progress)})`
 
         gsap.set(navRef.current, {
           backgroundColor: `rgba(255,255,255,${opacity})`,
           padding: padding
-        });
+        })
 
         gsap.set(navRef.current.querySelectorAll('.nav-link:not(:hover)'), {
           color: color
-        });
+        })
+      }
+    })
 
-      },
-    });
-  })
+    if (!isLoading) {
+      gsap.from(servicesRef.current, {
+        scrollTrigger: {
+          trigger: servicesRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+      })
+    }
+  }, [isLoading])
 
   return (
     <>
-    {isLoading && <div className="carousel-loader" style={{
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#fff',
-        position:'fixed',
-        width:'100vw',
-        top: 0,
-        left: 0,
-        zIndex: 100
-      }}>
-        <RingLoader size={60} color="#46973D" />
-      </div>}
-    <div>
-      <div className='navBarEnclosure' ref={navRef}>
-        <Navbar 
-        title={titleConfigs.navbarTitle} 
-        subTitle={titleConfigs.subTitle} 
-        logoPath={imagePaths.navbarLogo}
-        subLinks={[
-          {
-            to: "#",
-            title: "Home"
-          },
-          {
-            to: "#",
-            title: "About Us"
-          },
-          {
-            to: "#",
-            title: "Contact Us"
-          },
-        ]}
-      />
+      {isLoading && (
+        <div className="carousel-loader" style={{
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#fff',
+          position: 'fixed',
+          width: '100vw',
+          top: 0,
+          left: 0,
+          zIndex: 100
+        }}>
+          <RingLoader size={60} color="#46973D" />
+        </div>
+      )}
+      <div>
+        <div className='navBarEnclosure' ref={navRef}>
+          <Navbar 
+            title={titleConfigs.navbarTitle} 
+            subTitle={titleConfigs.subTitle} 
+            logoPath={imagePaths.navbarLogo}
+            subLinks={[
+              {
+                to: "#",
+                title: "Home"
+              },
+              {
+                to: "#services",
+                title: "Services"
+              },
+              {
+                to: "#",
+                title: "Contact Us"
+              },
+            ]}
+          />
+        </div>
+        <div className='carouselContainer'>
+          <Carousel isLoading={isLoading} setIsLoading={setIsLoading}/>
+        </div>
+        <div ref={servicesRef} id="services">
+          <Services />
+        </div>
+        <QuoteForm/>
       </div>
-      <div className='carouselContainer'>
-        <Carousel isLoading={isLoading} setIsLoading={setIsLoading}/>
-      </div>
-      <QuoteForm/>
-    </div>
-      
     </>
   )
 }

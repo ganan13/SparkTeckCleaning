@@ -70,7 +70,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('./assets/textures/subtle-texture.png');
+    background-image: url('./assets/textures/p6.png');
     opacity: 0.05;
     mix-blend-mode: multiply;
     z-index: -1;
