@@ -9,13 +9,15 @@ function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) 
     <>
         <nav className={`navbar navbar-expand-lg`} data-bs-theme="light">
             <div className="container-fluid">
+            <div className="logo-container">
                 <a className="navbar-brand" href="#">
                     <div><img src={logoPath} alt="Logo" width="40" className="d-inline-block align-text-top"/></div>
                     <div className='navTitleGroup'>
-                        <div className='navTitle'>{title}</div>
-                        <div className='navSubTitle'>{subTitle}</div>
+                    <div className='navTitle'>{title}</div>
+                    <div className='navSubTitle'>{subTitle}</div>
                     </div>
                 </a>
+            </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
