@@ -1,6 +1,7 @@
 import React from 'react'
 import gsap from 'gsap';
 import './Navbar.css'
+import QuotePopup from '../forms/Quote-form';
 
 function Navbar({title = "Title", subTitle = "", logoPath = "", subLinks = []}) {
     

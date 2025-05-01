@@ -1,0 +1,95 @@
+
+.mainForm {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-control, .form-select {
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #46973D;
+    box-shadow: 0 0 0 0.25rem rgba(70, 151, 61, 0.25);
+}
+
+.invalid-feedback {
+    color: #dc3545;
+}
+
+.btn:hover {
+    background-color: #3a7d32 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(70, 151, 61, 0.3);
+}
+
+.form-floating label {
+    color: #666;
+    font-family: "Poppins", sans-serif;
+}
+
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
+    color: #46973D;
+}
+
+@media (max-width: 768px) {
+    .mainForm {
+        padding: 2rem 1rem !important;
+    }
+}
+
+.popup-overlay {
+    backdrop-filter: blur(5px);
+}
+
+.popup-content {
+    transform: translateY(0);
+    transition: transform 0.3s ease-out;
+}
+
+.book-now-btn:hover {
+    background-color: #3a7d32 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(70, 151, 61, 0.4);
+}
+
+.form-floating label {
+    color: #666;
+    font-family: "Poppins", sans-serif;
+}
+
+.form-control, .form-select {
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #46973D;
+    box-shadow: 0 0 0 0.25rem rgba(70, 151, 61, 0.25);
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .popup-content {
+        width: 100% !important;
+        border-radius: 0 !important;
+        max-height: 85vh !important;
+    }
+    
+    .book-now-btn {
+        right: 10px !important;
+        bottom: 10px !important;
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+    }
+}

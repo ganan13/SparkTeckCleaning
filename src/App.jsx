@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
-import QuoteForm from './components/forms/Quote-form'
+// import QuoteForm from './components/forms/Quote-form'
 import Services from './components/services/Services'
 import { imagePaths, titleConfigs } from './Configurations/common-configs'
 import Carousel from './components/carousel/Carousel'
@@ -9,6 +9,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/all'
 import { RingLoader } from 'react-spinners'
+import QuotePopup from './components/forms/Quote-form'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -100,7 +101,7 @@ function App() {
         <div ref={servicesRef} id="services">
           <Services />
         </div>
-        <QuoteForm/>
+        <QuotePopup/>
       </div>
     </>
   )
