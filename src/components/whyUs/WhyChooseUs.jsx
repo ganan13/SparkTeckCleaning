@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCheckCircle, FaClock, FaCalendarAlt, FaHeadset, FaShieldAlt, FaDollarSign, FaBell } from 'react-icons/fa';
-// import { motion, MotionConfig } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 // import { motion } from "motion/react"
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -41,54 +41,81 @@ const features = [
   }
 ];
 
-function WhyChooseUs() {
-  useGSAP(() => {
-    gsap.from(".why-choose-us-title", {
-      scrollTrigger: {
-        trigger: ".why-choose-us",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.out"
-    });
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1 } 
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+  
 
-    gsap.from(".feature-item", {
-      scrollTrigger: {
-        trigger: ".features-grid",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      },
-      y: 50,
-      opacity: 0,
-      stagger: 0.15,
-      duration: 0.6,
-      delay: 0.3,
-      ease: "back.out(1.2)"
-    });
-  });
+function WhyChooseUs() {
+//   useGSAP(() => {
+//     gsap.from(".why-choose-us-title", {
+//       scrollTrigger: {
+//         trigger: ".why-choose-us",
+//         start: "top 80%",
+//         toggleActions: "play none none none"
+//       },
+//       y: 50,
+//       opacity: 0,
+//       duration: 0.8,
+//       ease: "power2.out"
+//     });
+
+//     gsap.from(".feature-item", {
+//       scrollTrigger: {
+//         trigger: ".features-grid",
+//         start: "top 80%",
+//         toggleActions: "play none none none"
+//       },
+//       y: 50,
+//       opacity: 0,
+//       stagger: 0.15,
+//       duration: 0.6,
+//       delay: 0.3,
+//       ease: "back.out(1.2)"
+//     });
+//   });
 
   return (
-    <section className="why-choose-us">
+    <motion.section 
+      className="why-choose-us"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="container">
         <h2 className="why-choose-us-title">Why Choose Us</h2>
         <p className="why-choose-us-subtitle">Discover the SparkTech Cleaning difference</p>
         
         <div className="features-grid">
             {features.map((feature, index) => (
-                <div key={index} className="feature-item">
-                <div className="feature-icon">
-                    {feature.icon}
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-                </div>
+                <motion.div 
+                key={index}
+                className="feature-item"
+                variants={itemVariants}
+                whileHover={{ scale: 1.03 }}
+                >
+                    <div className="feature-icon">
+                        {feature.icon}
+                    </div>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                </motion.div>
             ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
