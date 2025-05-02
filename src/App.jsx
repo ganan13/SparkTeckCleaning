@@ -12,6 +12,7 @@ import { RingLoader } from 'react-spinners'
 import QuotePopup from './components/forms/Quote-form'
 import Footer from './components/footer/footer'
 import WhyChooseUs from './components/whyUs/WhyChooseUs'
+import WelcomeBanner from './components/welcome/WelcomeBanner'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -106,6 +107,9 @@ function App() {
       </div>
       <div className='carouselContainer'>
         <Carousel isLoading={isLoading} setIsLoading={setIsLoading}/>
+      </div>
+      <div>
+        <WelcomeBanner popupOpen={setPopupOpen}/>
       </div>
       <div ref={servicesRef} id="services">
         <Services />

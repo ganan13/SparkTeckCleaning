@@ -29,7 +29,7 @@ const slides = [
 function Carousel({isLoading, setIsLoading}) {
   const totalImages = slides.length;
   const captionRefs = useRef([]);
-  var loadedImages = 0
+  var loadedImages = 1
 
   const handleImgLoad = (id) => {
     loadedImages += 1
