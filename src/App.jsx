@@ -93,7 +93,7 @@ function App() {
                 title: "Services"
               },
               {
-                to: "#",
+                to: "#contact",
                 title: "Contact Us"
               },
             ]}
