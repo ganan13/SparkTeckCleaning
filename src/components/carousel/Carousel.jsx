@@ -33,7 +33,9 @@ function Carousel({isLoading, setIsLoading}) {
 
   const handleImgLoad = (id) => {
     loadedImages += 1
-    setIsLoading(!(totalImages <= loadedImages))
+    if(isLoading && (totalImages <= loadedImages)){
+      setIsLoading(false)
+    }
     console.log(loadedImages)
   }
 
