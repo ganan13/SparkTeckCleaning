@@ -56,6 +56,7 @@ function App() {
         ease: "power2.out"
       })
     }
+    console.log(isLoading)
   }, [isLoading])
 
   return (
@@ -91,6 +92,10 @@ function App() {
               {
                 to: "#services",
                 title: "Services"
+              },
+              {
+                to: "#whyUs",
+                title: "Why SparkTech"
               },
               {
                 to: "#contact",

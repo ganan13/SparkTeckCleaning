@@ -29,9 +29,12 @@ const slides = [
 function Carousel({isLoading, setIsLoading}) {
   const totalImages = slides.length;
   const captionRefs = useRef([]);
+  var loadedImages = 0
 
   const handleImgLoad = (id) => {
-    setIsLoading(!(totalImages == (id+1)))
+    loadedImages += 1
+    setIsLoading(!(totalImages <= loadedImages))
+    console.log(loadedImages)
   }
 
   useEffect(() => {
