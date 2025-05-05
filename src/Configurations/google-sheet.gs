@@ -23,7 +23,6 @@ function doPost(e) {
       data.state || '',
       data.zip || '',
       data.schedule || '',
-      cleaningServiceType.filter(i => i.value == data.serviceType)[0]?.name || '',
       useOfService.filter(i => i.value == data.useService)[0]?.name || '',
       data.message || ''
     ]);
@@ -55,24 +54,6 @@ function doGet(e) {
   return output;
 }
 
-const cleaningServiceType = [
-    {
-        name: "Interior Builders Cleaning",
-        value: 1
-    },
-    {
-        name: "Exterior Builders Cleaning",
-        value: 2
-    },
-    {
-        name: "Builders Windows Cleaning",
-        value: 3
-    },
-    {
-        name: "Total Builders Cleaning Solution",
-        value: 4
-    },    
-]
 
 const useOfService = [
     {

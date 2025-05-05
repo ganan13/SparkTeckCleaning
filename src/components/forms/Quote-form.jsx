@@ -217,7 +217,7 @@ function QuotePopup({isOpen = false, setIsOpen}) {
                                 {errors.phone && <div className="invalid-feedback">{errors.phone.message}</div>}
                             </div>
 
-                            <div className="form-floating mb-3">
+                            {/* <div className="form-floating mb-3">
                                 <select 
                                     className={`form-select ${errors.serviceType ? 'is-invalid' : ''}`}
                                     id="service"
@@ -231,7 +231,7 @@ function QuotePopup({isOpen = false, setIsOpen}) {
                                 </select>
                                 <label htmlFor="service">Type of the Builders Cleaning Service *</label>
                                 {errors.serviceType && <div className="invalid-feedback">{errors.serviceType.message}</div>}
-                            </div>
+                            </div> */}
 
                             <div className="form-floating mb-3">
                                 <select 

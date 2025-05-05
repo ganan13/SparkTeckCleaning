@@ -1,21 +1,21 @@
-export const cleaningServiceType = [
-    {
-        name: "Interior Builders Cleaning",
-        value: 1
-    },
-    {
-        name: "Exterior Builders Cleaning",
-        value: 2
-    },
-    {
-        name: "Builders Windows Cleaning",
-        value: 3
-    },
-    {
-        name: "Total Builders Cleaning Solution",
-        value: 4
-    },    
-]
+// export const cleaningServiceType = [
+//     {
+//         name: "Interior Builders Cleaning",
+//         value: 1
+//     },
+//     {
+//         name: "Exterior Builders Cleaning",
+//         value: 2
+//     },
+//     {
+//         name: "Builders Windows Cleaning",
+//         value: 3
+//     },
+//     {
+//         name: "Total Builders Cleaning Solution",
+//         value: 4
+//     },    
+// ]
 
 export const useOfService = [
     {
